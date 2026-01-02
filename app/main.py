@@ -1,5 +1,5 @@
 class Animal:
-    alive: list = []
+    alive: list["Animal"] = []
 
     def __init__(
             self,
@@ -28,7 +28,7 @@ class Carnivore(Animal):
         if isinstance(animal, Herbivore) and animal.hidden is not True:
             animal.health -= 50
             Animal.alive = [
-                animal
-                for animal in Animal.alive
-                if animal.health > 0
+                creature
+                for creature in Animal.alive
+                if creature.health > 0
             ]
